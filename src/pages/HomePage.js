@@ -1,5 +1,6 @@
 import React from 'react'
 import {CircularProgress, Container, makeStyles} from '@material-ui/core'
+import PostsList from '../components/posts/PostsList'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,7 +13,7 @@ export default function HomePage() {
 
     return (
         <Container className={classes.root}>
-
+            <PostsList />
         </Container>
     )
 }
