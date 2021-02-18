@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, makeStyles} from '@material-ui/core'
+import {CircularProgress, Container, makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     root: {

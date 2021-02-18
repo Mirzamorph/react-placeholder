@@ -10,7 +10,7 @@ class Req {
     }
 
     async get(url, headers = {}) {
-        const res = await fetch(`${this.apiBase}/${url}`, {
+        const res = await fetch(this.apiBase + url, {
             method: 'GET',
             headers: {
                 ...this.defaultHeaders,
@@ -28,7 +28,7 @@ class Req {
             throw new Error(e.message)
         }
 
-        const res = await fetch(`${this.apiBase}/${url}`, {
+        const res = await fetch(this.apiBase + url, {
             method: 'POST',
             body: data,
             headers: {
@@ -38,7 +38,6 @@ class Req {
         })
         return await res.json()
     }
-
 }
 
 export const req = new Req(apiBase, defaultHeaders)
