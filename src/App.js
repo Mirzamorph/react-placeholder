@@ -1,13 +1,16 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
-
-import './App.css';
+import React from 'react'
+import HomePage from './pages/HomePage'
 import Header from './components/header/Header'
 
+import './App.css'
+
 function App() {
-  return (
-      <Header />
-  )
+    return (
+        <>
+            <Header/>
+            <HomePage/>
+        </>
+    )
 }
 
-export default App;
+export default App
