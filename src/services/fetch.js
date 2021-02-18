@@ -3,7 +3,7 @@ const defaultHeaders = {
     'Content-Type': 'application/json'
 }
 
-class req {
+class Req {
     constructor(apiBase, defaultHeaders) {
         this.apiBase = apiBase
         this.defaultHeaders = defaultHeaders
@@ -40,3 +40,5 @@ class req {
     }
 
 }
+
+export const req = new Req(apiBase, defaultHeaders)
