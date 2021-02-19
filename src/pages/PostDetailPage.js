@@ -1,12 +1,10 @@
 import React from 'react'
-import PostsList from '../components/posts/PostsList'
 import MainContainer from '../components/partials/MainContainer'
 
-export default function HomePage() {
-
+export default function PostDetailPage() {
     return (
         <MainContainer>
-            <PostsList />
+            asd
         </MainContainer>
     )
 }

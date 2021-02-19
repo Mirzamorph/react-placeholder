@@ -4,12 +4,9 @@ import {Grid} from '@material-ui/core'
 import PostItem from './PostItem'
 import Loader from '../loader/Loader'
 
-
-
-
 export default function PostsList() {
     const posts = usePosts()
-    console.log(posts)
+
     if (!posts.length) {
         return <Loader/>
     }
