@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {fetchCommentsById, fetchPosts, fetchUserById} from '../services/fetchData'
+import {fetchCommentsByPostId, fetchPosts, fetchUserById} from '../services/fetchData'
 
 export default function usePosts() {
     const [posts, setPosts] = useState([])
@@ -7,7 +7,7 @@ export default function usePosts() {
         const fetchData = async () => {
             const plainPosts = await fetchPosts()
             const posts = await Promise.all(plainPosts.map(async (post) => {
-                post.comments = await fetchCommentsById(post.id)
+                post.comments = await fetchCommentsByPostId(post.id)
                 post.user = await fetchUserById(post.id)
                 return post
             }))
