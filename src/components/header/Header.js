@@ -1,6 +1,7 @@
 import React from 'react'
 import {AppBar, Button, IconButton, makeStyles, Toolbar, Typography} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +28,7 @@ export default function Header() {
                     <Typography variant="h6" className={classes.title}>
                         News
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" component={Link} to="/">Login</Button>
                 </Toolbar>
             </AppBar>
         </div>

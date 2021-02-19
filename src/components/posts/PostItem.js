@@ -10,6 +10,7 @@ import {
     makeStyles,
     Typography
 } from '@material-ui/core'
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -35,7 +36,7 @@ export default function PostItem({post}) {
                 }
                 title={user.name}
             />
-            <CardActionArea>
+            <CardActionArea component={Link} to={`/posts/${post.id}`}>
                 <CardContent className={classes.media}>
                     <Typography gutterBottom variant="h5" component="h2">
                         {title}
