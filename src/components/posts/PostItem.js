@@ -1,12 +1,23 @@
 import React from 'react'
-import {Button, Card, CardActionArea, CardActions, CardContent, makeStyles, Typography} from '@material-ui/core'
+import {
+    Avatar,
+    Button,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    CardHeader, IconButton,
+    makeStyles,
+    Typography
+} from '@material-ui/core'
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
     },
     media: {
-        // height: 250,
+        height: 200,
     },
 })
 
@@ -16,8 +27,16 @@ export default function PostItem({post}) {
 
     return (
         <Card className={classes.root}>
+            <CardHeader
+                avatar={
+                    <Avatar aria-label="recipe" className={classes.avatar}>
+                        R
+                    </Avatar>
+                }
+                title="Shrimp and Chorizo Paella"
+            />
             <CardActionArea>
-                <CardContent>
+                <CardContent className={classes.media}>
                     <Typography gutterBottom variant="h5" component="h2">
                         {title}
                     </Typography>
