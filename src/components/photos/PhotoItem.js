@@ -9,9 +9,7 @@ import {
 } from '@material-ui/core'
 
 const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
-    },
+    root: {},
     media: {
         height: 140,
     },

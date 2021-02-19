@@ -47,7 +47,7 @@ export default function PostItem({post}) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" component={Link} to={`/posts/${post.id}#comments`}>
                     {commentsCount} комментариев
                 </Button>
             </CardActions>
