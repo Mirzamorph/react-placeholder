@@ -6,11 +6,10 @@ import {
     CardActionArea,
     CardActions,
     CardContent,
-    CardHeader, IconButton,
+    CardHeader,
     makeStyles,
     Typography
 } from '@material-ui/core'
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles({
     root: {
@@ -23,17 +22,18 @@ const useStyles = makeStyles({
 
 export default function PostItem({post}) {
     const classes = useStyles()
-    const {title, body} = post
+    const {title, body, user, comments} = post
+    const commentsCount = comments.length
 
     return (
         <Card className={classes.root}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
-                        R
+                        {user.name[0]}
                     </Avatar>
                 }
-                title="Shrimp and Chorizo Paella"
+                title={user.name}
             />
             <CardActionArea>
                 <CardContent className={classes.media}>
@@ -47,10 +47,7 @@ export default function PostItem({post}) {
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    Share
-                </Button>
-                <Button size="small" color="primary">
-                    Learn More
+                    {commentsCount} комментариев
                 </Button>
             </CardActions>
         </Card>
