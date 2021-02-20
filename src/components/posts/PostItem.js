@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
     Avatar,
     Button,
@@ -27,7 +27,7 @@ export default function PostItem({post}) {
     const {title, body, user, comments} = post
     const commentsCount = comments.length
 
-    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = useState(null)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
@@ -58,7 +58,7 @@ export default function PostItem({post}) {
                             onClose={handleClose}
                         >
                             <MenuItem onClick={handleClose} component={Link} to={`/users/${user.id}`}>Профиль</MenuItem>
-                            <MenuItem onClick={handleClose}>Посты от {user.name}</MenuItem>
+                            <MenuItem onClick={handleClose} component={Link} to={`/users/${user.id}/posts`}>Посты от {user.name}</MenuItem>
                         </Menu>
                     </>
                 }

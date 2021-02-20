@@ -1,7 +1,11 @@
 import {req} from './fetch'
 
-export async function fetchPosts(limit = 9) {
-    return await req.get(`/posts?_limit=${limit}`)
+export async function fetchPosts(userId = null, limit = 9) {
+    let url = `/posts?_limit=${limit}`
+    if (userId) {
+        url += `&userId=${userId}`
+    }
+    return await req.get(url)
 }
 
 export async function fetchPost(id) {

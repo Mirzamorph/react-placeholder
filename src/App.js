@@ -6,6 +6,7 @@ import Header from './components/header/Header'
 import './App.css'
 import PostDetailPage from './pages/PostDetailPage'
 import UserDetailPage from './pages/UserDetailPage'
+import UserPostsPage from './pages/UserPostsPage'
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                     <UserDetailPage/>
                 </Route>
                 <Route path="/users/:userId/posts" exact>
-                    <PostDetailPage/>
+                    <UserPostsPage/>
                 </Route>
                 <Route>
                     not found
