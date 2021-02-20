@@ -6,10 +6,11 @@ import {
     CardActionArea,
     CardActions,
     CardContent,
-    CardHeader,
-    makeStyles,
+    CardHeader, IconButton,
+    makeStyles, Menu, MenuItem,
     Typography
 } from '@material-ui/core'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
 import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -26,6 +27,16 @@ export default function PostItem({post}) {
     const {title, body, user, comments} = post
     const commentsCount = comments.length
 
+    const [anchorEl, setAnchorEl] = React.useState(null)
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -33,6 +44,23 @@ export default function PostItem({post}) {
                     <Avatar aria-label="recipe" className={classes.avatar}>
                         {user.name[0]}
                     </Avatar>
+                }
+                action={
+                    <>
+                        <IconButton aria-label="settings" onClick={handleClick}>
+                            <MoreVertIcon/>
+                        </IconButton>
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose} component={Link} to={`/users/${user.id}`}>Профиль</MenuItem>
+                            <MenuItem onClick={handleClose}>Посты от {user.name}</MenuItem>
+                        </Menu>
+                    </>
                 }
                 title={user.name}
             />

@@ -25,9 +25,7 @@ export default function Header() {
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        News
-                    </Typography>
+                    <Button color="inherit" component={Link} to="/">Лента</Button>
                     <Button color="inherit" component={Link} to="/">Login</Button>
                 </Toolbar>
             </AppBar>

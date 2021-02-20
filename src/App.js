@@ -5,6 +5,7 @@ import Header from './components/header/Header'
 
 import './App.css'
 import PostDetailPage from './pages/PostDetailPage'
+import UserDetailPage from './pages/UserDetailPage'
 
 function App() {
     return (
@@ -15,6 +16,12 @@ function App() {
                     <HomePage/>
                 </Route>
                 <Route path="/posts/:postId" exact>
+                    <PostDetailPage/>
+                </Route>
+                <Route path="/users/:userId" exact>
+                    <UserDetailPage/>
+                </Route>
+                <Route path="/users/:userId/posts" exact>
                     <PostDetailPage/>
                 </Route>
                 <Route>
