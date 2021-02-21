@@ -11,7 +11,6 @@ export default function useUser(id) {
         fetchData()
     }, [])
 
-    console.log(user)
     return user
 }
 

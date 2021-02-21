@@ -26,6 +26,5 @@ export default function usePost(id) {
         fetchData()
     }, [])
 
-    console.log(post)
     return post
 }
