@@ -13,7 +13,7 @@ export default function usePost(id) {
         const fetchData = async () => {
             const post = await fetchPost(id)
             post.comments = await fetchCommentsByPostId(post.id)
-            post.user = await fetchUserById(post.id)
+            post.user = await fetchUserById(post.userId)
 
             const albums = await fetchAlbumsByUserId(post.user.id)
             post.albums = await Promise.all(albums.map(async (album) => {

@@ -16,7 +16,7 @@ export default function PostsList() {
             {
                 posts.map(post => (
                     <Grid item xs={6} sm={4} key={post.id}>
-                        <PostItem post={post}/>
+                        <PostItem post={post} withHeader/>
                     </Grid>
                 ))
             }

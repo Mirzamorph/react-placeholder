@@ -1,17 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
-    Avatar,
     Button,
     Card,
     CardActionArea,
     CardActions,
     CardContent,
-    CardHeader, IconButton,
-    makeStyles, Menu, MenuItem,
+    makeStyles,
     Typography
 } from '@material-ui/core'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import {Link} from 'react-router-dom'
+import PostHeader from './PostHeader'
 
 const useStyles = makeStyles({
     root: {
@@ -22,48 +20,14 @@ const useStyles = makeStyles({
     },
 })
 
-export default function PostItem({post}) {
+export default function PostItem({post, withHeader = false}) {
     const classes = useStyles()
     const {title, body, user, comments} = post
     const commentsCount = comments.length
 
-    const [anchorEl, setAnchorEl] = useState(null)
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget)
-    }
-
-    const handleClose = () => {
-        setAnchorEl(null)
-    }
-
     return (
         <Card className={classes.root}>
-            <CardHeader
-                avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                        {user.name[0]}
-                    </Avatar>
-                }
-                action={
-                    <>
-                        <IconButton aria-label="settings" onClick={handleClick}>
-                            <MoreVertIcon/>
-                        </IconButton>
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                        >
-                            <MenuItem onClick={handleClose} component={Link} to={`/users/${user.id}`}>Профиль</MenuItem>
-                            <MenuItem onClick={handleClose} component={Link} to={`/users/${user.id}/posts`}>Посты от {user.name}</MenuItem>
-                        </Menu>
-                    </>
-                }
-                title={user.name}
-            />
+            {withHeader && <PostHeader user={user}/>}
             <CardActionArea component={Link} to={`/posts/${post.id}`}>
                 <CardContent className={classes.media}>
                     <Typography gutterBottom variant="h5" component="h2">
