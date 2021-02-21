@@ -1,10 +1,11 @@
 import React, {useEffect, useRef} from 'react'
-import usePost from '../../hooks/usePost'
 import Loader from '../loader/Loader'
 import {makeStyles, Typography} from '@material-ui/core'
 import AlbumList from '../albums/AlbumList'
 import CommentList from '../comments/CommentList'
 import {useLocation} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import {setPostAsync} from '../../redux/actions/postActions'
 
 const useStyles = makeStyles(theme => ({
     sectionTitle: {
@@ -15,10 +16,17 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function PostDetail({id}) {
-    const post = usePost(id)
+    const {currentPost: post} = useSelector(state => state.posts)
+    const dispatch = useDispatch()
     const classes = useStyles()
     const commentTitle = useRef(null)
     const location = useLocation()
+
+    console.log(post)
+
+    useEffect(() => {
+        dispatch(setPostAsync(id))
+    }, [dispatch, id])
 
     useEffect(() => {
         if (post && location.hash) {

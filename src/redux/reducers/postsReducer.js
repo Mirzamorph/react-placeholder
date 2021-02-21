@@ -21,7 +21,7 @@ export default function postReducer(state = initialState, action) {
         case SET_CURRENT_POST:
             return {
                 ...state,
-                post: action.payload
+                currentPost: action.payload
             }
         default:
             return state
